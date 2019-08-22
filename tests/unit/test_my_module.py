@@ -15,7 +15,7 @@ def test_get(dynamodb_stub, params, partition_key, sort_key, item):
     with dynamodb_stub:
         response = get("test-table", Key={partition_key: "1", sort_key: "2"})
 
-        assert response == item["decoded"]
+    assert response == item["decoded"]
 
 
 @pytest.mark.unit
@@ -26,7 +26,7 @@ def test_get_not_found(dynamodb_stub, params, partition_key, sort_key, item):
     with dynamodb_stub:
         response = get("test-table", Key={partition_key: "1", sort_key: "2"})
 
-        assert response == dict()
+    assert response == dict()
 
 
 @pytest.mark.unit
